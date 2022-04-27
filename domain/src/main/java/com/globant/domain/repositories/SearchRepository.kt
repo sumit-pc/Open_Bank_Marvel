@@ -4,5 +4,5 @@ import com.globant.domain.model.AllData
 
 interface SearchRepository {
 
-    suspend fun getMealList(pk:String, ts:String, hash:String) : AllData
+    suspend fun getHerosList(pk:String, ts:String, hash:String) : AllData
 }
