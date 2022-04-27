@@ -63,7 +63,7 @@
                     android:layout_height="320dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="32dp"
-                    android:src="@drawable/loading"
+                    android:src="@drawable/load"
                     app:urlToImage="@{mealDetails.thumbnail.image}"
                     app:extensionOfImage="@{mealDetails.thumbnail.extension}"/>
 

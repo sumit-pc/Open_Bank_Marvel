@@ -12,11 +12,11 @@ import javax.inject.Inject
 
 class GetSearchList @Inject constructor(private val repository: SearchRepository) {
 
-    operator fun invoke(s: String): Flow<ApiState<List<HeroData>>> = flow {
+    operator fun invoke(pk:String, ts:String, hash:String): Flow<ApiState<List<HeroData>>> = flow {
         try {
             emit(ApiState.Loading())
 
-            val response = repository.getMealList()
+            val response = repository.getMealList(pk, ts, hash)
             val list = if (response.dataObject.mealList.isEmpty()) emptyList<HeroData>() else response.dataObject.mealList.map { it }
 
             emit(ApiState.Success(list))

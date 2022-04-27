@@ -7,8 +7,8 @@ import com.globant.domain.repositories.DetailsRepository
 
 class DetailsImpl(private val apiService: ApiService): DetailsRepository {
 
-    override suspend fun getMealDetails(id: String): HerosDetails {
-        return apiService.getMealDetails(id)
+    override suspend fun getMealDetails(id: String, pk:String, ts:String, hash:String): HerosDetails {
+        return apiService.getMealDetails(id,pk, ts, hash)
     }
 
 }

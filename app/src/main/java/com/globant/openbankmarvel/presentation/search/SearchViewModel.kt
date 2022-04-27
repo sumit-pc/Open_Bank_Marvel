@@ -17,9 +17,9 @@ class SearchViewModel @Inject constructor(private val getSearchList: GetSearchLi
     private val _searchList = MutableStateFlow<SearchState>(SearchState())
     val searchList: StateFlow<SearchState> = _searchList
 
-    fun searchHero(s: String) {
+    fun searchHero(pk: String, ts:String, hash:String ) {
 
-        getSearchList(s).onEach {
+        getSearchList(pk, ts, hash).onEach {
             when(it) {
                 is ApiState.Loading -> {
                     _searchList.value = SearchState(isLoading = true)

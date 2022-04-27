@@ -13,11 +13,11 @@ import javax.inject.Inject
 
 class GetDetails @Inject constructor(private val repository: DetailsRepository) {
 
-    operator fun invoke(id: String): Flow<ApiState<HeroData>> = flow {
+    operator fun invoke(id: String, pk:String, ts:String, hash:String): Flow<ApiState<HeroData>> = flow {
         try {
             emit(ApiState.Loading())
 
-            val response = repository.getMealDetails(id).dataObject.mealList[0]
+            val response = repository.getMealDetails(id, pk, ts, hash).dataObject.mealList[0]
 
             emit(ApiState.Success(data = response))
 

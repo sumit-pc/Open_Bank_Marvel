@@ -11,6 +11,9 @@ import androidx.lifecycle.coroutineScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.globant.domain.model.HeroData
+import com.globant.openbankmarvel.BuildConfig
+import com.globant.openbankmarvel.common.HashClass
+import com.globant.openbankmarvel.common.HashClass.Companion.toHex
 import com.globant.openbankmarvel.databinding.FragmentDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -41,7 +44,10 @@ class DetailsFragment : Fragment() {
 
         args.mealId?.let { id ->
             mealId = id
-            detailsViewModel.getMealDetails(id)
+            val ts = System.currentTimeMillis().toString()
+            detailsViewModel.getMealDetails(id, BuildConfig.PUBLIC_KEY, ts, HashClass.md5(ts,
+                BuildConfig.PRIVATE_KEY,
+                BuildConfig.PUBLIC_KEY).toHex())
         }
 
         binding.detailsBackArrow.setOnClickListener {

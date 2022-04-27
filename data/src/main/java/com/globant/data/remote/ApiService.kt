@@ -9,16 +9,16 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("public/characters")
-    suspend fun getMealList(@Query("apikey") apikey:String="00fb521e8a8cf4cad2f5ba2243776e70",
-                            @Query("ts") ts:String="123456789",
-                            @Query("hash") hash:String="8dbccc8918c2c03247869a5a3137cac6"
+    suspend fun getMealList(@Query("apikey") apikey:String,
+                            @Query("ts") ts:String,
+                            @Query("hash") hash:String
     ): AllData
 
     @GET("public/characters/{id}")
     suspend fun getMealDetails(@Path("id") groupId:String ,
-                               @Query("apikey") apikey:String="00fb521e8a8cf4cad2f5ba2243776e70",
-                               @Query("ts") ts:String="123456789",
-                               @Query("hash") hash:String="8dbccc8918c2c03247869a5a3137cac6"
+                               @Query("apikey") apikey:String,
+                               @Query("ts") ts:String,
+                               @Query("hash") hash:String
     ): HerosDetails
 
 }

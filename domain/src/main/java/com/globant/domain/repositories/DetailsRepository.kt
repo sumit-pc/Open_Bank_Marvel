@@ -5,6 +5,6 @@ import com.globant.domain.model.HerosDetails
 
 interface DetailsRepository {
 
-    suspend fun getMealDetails(id: String) : HerosDetails
+    suspend fun getMealDetails(id: String, pk:String, ts:String, hash:String) : HerosDetails
 
 }

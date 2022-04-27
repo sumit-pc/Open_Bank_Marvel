@@ -31,7 +31,7 @@
                 android:src="@color/black"
                 app:urlToImage="@{meal.thumbnail.image}"
                 app:extensionOfImage="@{meal.thumbnail.extension}"
-                tools:src="@drawable/loading" />
+                tools:src="@drawable/load" />
 
 
             <TextView

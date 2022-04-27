@@ -17,8 +17,8 @@ class DetailViewModel @Inject constructor(private val getDetails: GetDetails): V
     private val _heroDetails = MutableStateFlow<DetailState>(DetailState())
     val heroDetails: StateFlow<DetailState> = _heroDetails
 
-    fun getMealDetails(id: String) {
-        getDetails(id).onEach {
+    fun getMealDetails(id: String, pk: String, ts: String, hash: String) {
+        getDetails(id, pk, ts, hash).onEach {
             when(it) {
                 is ApiState.Loading -> {
                     _heroDetails.value = DetailState(isLoading = true)

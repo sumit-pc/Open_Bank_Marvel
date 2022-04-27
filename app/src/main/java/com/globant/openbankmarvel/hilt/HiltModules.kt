@@ -1,12 +1,11 @@
 package com.globant.openbankmarvel.hilt
 
-import android.provider.SyncStateContract
 import com.globant.data.remote.ApiService
 import com.globant.data.repositories.heroes.DetailsImpl
 import com.globant.data.repositories.heroes.SearchImpl
 import com.globant.domain.repositories.DetailsRepository
 import com.globant.domain.repositories.SearchRepository
-import com.globant.openbankmarvel.common.Constants
+import com.globant.openbankmarvel.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +22,7 @@ object HiltModules {
     @Singleton
     fun provideHeroSearchResult(): ApiService {
         return Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(ApiService::class.java)
     }
