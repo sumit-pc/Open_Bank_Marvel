@@ -2,8 +2,6 @@ package com.globant.data.remote
 
 import com.globant.data.model.AllDataDto
 import com.globant.data.model.HerosDetailsDto
-import com.globant.domain.model.AllData
-import com.globant.domain.model.HerosDetails
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

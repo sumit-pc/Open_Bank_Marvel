@@ -17,7 +17,7 @@ class GetSearchList @Inject constructor(private val repository: SearchRepository
             emit(ApiState.Loading())
 
             val response = repository.getHerosList(pk, ts, hash)
-            val list = if (response.dataObject.mealList.isEmpty()) emptyList<HeroData>() else response.dataObject.mealList.map { it }
+            val list = if (response.mealList.isEmpty()) emptyList<HeroData>() else response.mealList.map { it }
 
             emit(ApiState.Success(list))
 

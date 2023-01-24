@@ -1,6 +1,6 @@
 package com.globant.data.model
 
-import com.globant.domain.model.DataObject
+import com.globant.domain.model.HeroData
 
 data class Data(
     val count: Int,
@@ -10,6 +10,6 @@ data class Data(
     val total: Int
 )
 
-fun Data.toDataObject() : DataObject {
-    return DataObject(results.map { it.toHeroData() })
+fun Data.toDataObject() : List<HeroData> {
+    return results.map { it.toHeroData() }
 }

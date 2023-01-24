@@ -1,6 +1,6 @@
 package com.globant.data.model
 
-import com.globant.domain.model.AllData
+import com.globant.domain.model.DataObject
 
 data class AllDataDto(
     val attributionHTML: String,
@@ -12,8 +12,8 @@ data class AllDataDto(
     val status: String
 )
 
-fun AllDataDto.toAllData(): AllData {
-    return AllData(
-        dataObject = data.toDataObject()
+fun AllDataDto.toAllData(): DataObject {
+    return DataObject(
+        mealList = data.toDataObject()
     )
 }
