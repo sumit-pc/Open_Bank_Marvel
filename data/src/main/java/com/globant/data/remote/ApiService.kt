@@ -4,21 +4,12 @@ import com.globant.data.model.AllDataDto
 import com.globant.data.model.HerosDetailsDto
 import retrofit2.http.GET
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface ApiService {
 
     @GET("public/characters")
-    suspend fun getMealList(@Query("apikey") apikey:String,
-                            @Query("ts") ts:String,
-                            @Query("hash") hash:String
-    ): AllDataDto
+    suspend fun getMealList(): AllDataDto
 
     @GET("public/characters/{id}")
-    suspend fun getMealDetails(@Path("id") groupId:String ,
-                               @Query("apikey") apikey:String,
-                               @Query("ts") ts:String,
-                               @Query("hash") hash:String
-    ): HerosDetailsDto
-
+    suspend fun getMealDetails(@Path("id") groupId: String): HerosDetailsDto
 }

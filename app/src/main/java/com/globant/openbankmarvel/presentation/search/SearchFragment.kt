@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
 import androidx.navigation.fragment.findNavController
 import com.globant.openbankmarvel.BuildConfig
+import com.globant.openbankmarvel.BuildConfig.PUBLIC_KEY
 import com.globant.openbankmarvel.R
 import com.globant.openbankmarvel.common.HashClass
 import com.globant.openbankmarvel.common.HashClass.Companion.toHex
@@ -39,7 +40,7 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val ts = System.currentTimeMillis().toString()
-        searchViewModel.searchHero(BuildConfig.PUBLIC_KEY, ts, HashClass.md5(ts,BuildConfig.PRIVATE_KEY,BuildConfig.PUBLIC_KEY).toHex())
+        searchViewModel.searchHero(PUBLIC_KEY, ts, HashClass.md5(ts,BuildConfig.PRIVATE_KEY,BuildConfig.PUBLIC_KEY).toHex())
 
         binding.heroSearchRecycler.apply {
             adapter = searchAdapter

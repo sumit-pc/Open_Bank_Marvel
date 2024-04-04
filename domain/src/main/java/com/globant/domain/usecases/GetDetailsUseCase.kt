@@ -1,6 +1,7 @@
 package com.globant.domain.usecases
 
 import com.globant.domain.common.ApiState
+import com.globant.domain.common.Loading
 import com.globant.domain.model.HeroData
 import com.globant.domain.repositories.DetailsRepository
 import kotlinx.coroutines.flow.Flow
@@ -11,11 +12,11 @@ import java.lang.Exception
 import javax.inject.Inject
 
 
-class GetDetails @Inject constructor(private val repository: DetailsRepository) {
+class GetDetailsUseCase @Inject constructor(private val repository: DetailsRepository) {
 
     operator fun invoke(id: String, pk:String, ts:String, hash:String): Flow<ApiState<HeroData>> = flow {
         try {
-            emit(ApiState.Loading())
+            emit(Loading())
 
             val response = repository.getMealDetails(id, pk, ts, hash).dataObject.mealList[0]
 

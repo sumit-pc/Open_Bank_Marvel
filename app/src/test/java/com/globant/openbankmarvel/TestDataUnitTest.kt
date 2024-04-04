@@ -2,7 +2,7 @@ package com.globant.openbankmarvel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.globant.domain.common.ApiState
-import com.globant.domain.usecases.GetSearchList
+import com.globant.domain.usecases.GetSearchListUseCase
 import com.globant.openbankmarvel.repositories.FakeSearchRepository
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -19,18 +19,18 @@ class SearchViewModelTest {
     fun `insert all data and not get any error responce`() {
 
         val fakeSearchRepository = FakeSearchRepository()
-        val getSearchList = GetSearchList(fakeSearchRepository)
+        val getSearchListUseCase = GetSearchListUseCase(fakeSearchRepository)
 
-        assertThat(getSearchList.invoke("test", "test", "test").let { it }).isNotEqualTo(ApiState.Error("",""))
+        assertThat(getSearchListUseCase.invoke("test", "test", "test").let { it }).isNotEqualTo(ApiState.Error("",""))
     }
 
     @Test
     fun `insert data and get sucess responce`() {
 
         val fakeSearchRepository = FakeSearchRepository()
-        val getSearchList = GetSearchList(fakeSearchRepository)
+        val getSearchListUseCase = GetSearchListUseCase(fakeSearchRepository)
 
-        assertThat(getSearchList.invoke("test", "test", "test").let { it }).isNotEqualTo(ApiState.Success(""))
+        assertThat(getSearchListUseCase.invoke("test", "test", "test").let { it }).isNotEqualTo(ApiState.Success(""))
     }
 
 }

@@ -11,11 +11,10 @@ class FakeSearchRepository : SearchRepository {
         private val urlList: List<UrlData> = listOf(urlList1, urlList2)
         private val heroData: HeroData = HeroData("1", "Marvel", thumbnail, urlList)
         private val dataObject : DataObject = DataObject(listOf(heroData))
-        private val allData: AllData = AllData(dataObject)
 
 
 
-    override suspend fun getHerosList(pk: String, ts: String, hash: String): AllData {
-        return allData;
+    override suspend fun getHerosList(pk: String, ts: String, hash: String): DataObject {
+        return dataObject;
     }
 }
